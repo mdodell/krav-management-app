@@ -60,7 +60,7 @@ const rightNavItems: NavItem[] = [
 ]
 
 const activeItemStyles =
-  "text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100"
+  "text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100 bg-sidebar-primary"
 
 interface AppHeaderProps {
   breadcrumbs?: BreadcrumbItem[]
@@ -101,7 +101,7 @@ export function AppHeader({ breadcrumbs = [] }: AppHeaderProps) {
                         <Link
                           key={item.title}
                           href={item.href}
-                          className="flex items-center space-x-2 font-medium"
+                          className="flex items-center space-x-2 font-medium" 
                         >
                           {item.icon && (
                             <Icon iconNode={item.icon} className="h-5 w-5" />

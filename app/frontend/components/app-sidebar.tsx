@@ -23,7 +23,7 @@ const mainNavItems: NavItem[] = [
     title: "Dashboard",
     href: dashboardPath(),
     icon: LayoutGrid,
-  },
+  }
 ]
 
 const footerNavItems: NavItem[] = [
