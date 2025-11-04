@@ -8,6 +8,18 @@ export default defineConfig({
     // prebuilds ssr.js so we can drop node_modules from the resulting container
     noExternal: true,
   },
+  // Server configuration only applies to development (vite dev)
+  // In production, assets are precompiled and served statically
+  server: {
+    host: "127.0.0.1",
+    port: 3036,
+    strictPort: true,
+    hmr: {
+      protocol: "ws",
+      host: "127.0.0.1",
+      port: 3036,
+    },
+  },
   plugins: [
     react({
       babel: {
