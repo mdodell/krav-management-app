@@ -2,6 +2,7 @@
 
 class SessionsController < InertiaController
   skip_before_action :authenticate, only: %i[ new create ]
+  before_action :ensure_tenant!, only: %i[ new create ]
   before_action :require_no_authentication, only: %i[ new create ]
   before_action :set_session, only: :destroy
 

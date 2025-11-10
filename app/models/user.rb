@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  acts_as_tenant :gym
+
+  belongs_to :gym
   has_secure_password
 
   generates_token_for :email_verification, expires_in: 2.days do
@@ -15,7 +18,7 @@ class User < ApplicationRecord
   has_many :sessions, dependent: :destroy
 
   validates :name, presence: true
-  validates :email, presence: true, uniqueness: true, format: {with: URI::MailTo::EMAIL_REGEXP}
+  validates :email, presence: true, uniqueness: { scope: :gym_id }, format: {with: URI::MailTo::EMAIL_REGEXP}
   validates :password, allow_nil: true, length: {minimum: 12}
 
   normalizes :email, with: -> { _1.strip.downcase }

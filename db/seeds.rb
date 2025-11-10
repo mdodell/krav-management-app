@@ -9,3 +9,8 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+# Seed a default gym for multi-tenancy
+Gym.find_or_create_by!(subdomain: "alphakravmaga") do |gym|
+  gym.name = "Alpha Krav Maga Boston"
+end

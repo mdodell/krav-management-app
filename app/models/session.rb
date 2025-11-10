@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class Session < ApplicationRecord
+  acts_as_tenant :gym
+
+  belongs_to :gym
   belongs_to :user
 
   before_create do
